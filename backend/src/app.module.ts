@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { AccountsModule } from './accounts/accounts.module';
 import { OutgoingsModule } from './outgoings/outgoings.module';
 import { IncomesModule } from './incomes/incomes.module';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { IncomesModule } from './incomes/incomes.module';
     AccountsModule,
     OutgoingsModule,
     IncomesModule,
+    CategoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
