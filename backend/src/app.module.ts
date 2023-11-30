@@ -6,6 +6,7 @@ import { ContractsModule } from './contracts/contracts.module';
 import { UsersModule } from './users/users.module';
 import { AccountsModule } from './accounts/accounts.module';
 import { OutgoingsModule } from './outgoings/outgoings.module';
+import { IncomesModule } from './incomes/incomes.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { OutgoingsModule } from './outgoings/outgoings.module';
     UsersModule,
     AccountsModule,
     OutgoingsModule,
+    IncomesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
