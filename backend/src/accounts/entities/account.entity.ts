@@ -1,5 +1,6 @@
+import { Contract } from "src/contracts/entities/contract.entity";
 import { User } from "src/users/entities/user.entity";
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class Account {
@@ -19,4 +20,7 @@ export class Account {
 
     @ManyToOne(() => User, (user) => user.accounts)
     user: User
+
+    @OneToMany( () => Contract, (contract)=> contract.account)
+    contracts: Contract[]
 }
