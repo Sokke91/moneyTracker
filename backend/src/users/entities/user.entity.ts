@@ -1,25 +1,32 @@
-import { Account } from "src/accounts/entities/account.entity";
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Account } from 'src/accounts/entities/account.entity';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
-    @PrimaryGeneratedColumn()
-    id: number
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({nullable: false})
-    username: string
-    
-    @Column({nullable: false})
-    password: string 
+  @Column({ nullable: false })
+  username: string;
 
-    @CreateDateColumn()
-    created_at: Date
+  @Column({ nullable: false })
+  password: string;
 
-    @UpdateDateColumn()
-    updated_at: Date
+  @CreateDateColumn()
+  created_at: Date;
 
-    // Relations
+  @UpdateDateColumn()
+  updated_at: Date;
 
-    @OneToMany( () => Account, (account) =>account.user)
-    accounts: Account[]
+  // Relations
+
+  @OneToMany(() => Account, (account) => account.user)
+  accounts: Account[];
 }

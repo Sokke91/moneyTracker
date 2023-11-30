@@ -1,26 +1,38 @@
-import { Contract } from "src/contracts/entities/contract.entity";
-import { User } from "src/users/entities/user.entity";
-import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Contract } from 'src/contracts/entities/contract.entity';
+import { Income } from 'src/incomes/entities/income.entity';
+import { User } from 'src/users/entities/user.entity';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class Account {
-    @PrimaryGeneratedColumn()
-    id: number
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({nullable: false})
-    name: string
+  @Column({ nullable: false })
+  name: string;
 
-    @CreateDateColumn()
-    created_at: Date
+  @CreateDateColumn()
+  created_at: Date;
 
-    @UpdateDateColumn()
-    updated_at: Date
+  @UpdateDateColumn()
+  updated_at: Date;
 
-    // Relations
+  // Relations
 
-    @ManyToOne(() => User, (user) => user.accounts)
-    user: User
+  @ManyToOne(() => User, (user) => user.accounts)
+  user: User;
 
-    @OneToMany( () => Contract, (contract)=> contract.account)
-    contracts: Contract[]
+  @OneToMany(() => Contract, (contract) => contract.account)
+  contracts: Contract[];
+
+  @OneToMany(() => Income, (income) => income.account)
+  incomes: Income[];
 }
